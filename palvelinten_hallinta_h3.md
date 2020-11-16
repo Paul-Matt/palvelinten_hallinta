@@ -96,6 +96,25 @@ Tässä näkyy mitä tiedostoja vertaillaan, ja kerrotaan kumpi näkyy tulostees
 
 ### git blame
 
-Tässä näytetään rivi riviltäkuka teki kyseisen muutoksen. Tätä tiedostoa muut eivät ole muokanneet, joten näkyy vain omia muokkailuja. Tämä oli itselleni uusi komento, ja voisin kuvitella sen olevan hyödyllinen kummallisten merge-tapahtumien selvittelyssä.
+Tässä näytetään rivi riviltä kuka teki kyseisen muutoksen. Tätä tiedostoa muut eivät ole muokanneet, joten näkyy vain omia muokkailuja. Tämä oli itselleni uusi komento, ja voisin kuvitella sen olevan hyödyllinen kummallisten merge-tapahtumien selvittelyssä.
 
 ![Blame-kuva](ph2_blame.png "Blame-kuva")
+
+
+## "e) Tee tyhmä muutos gittiin, älä tee commit:tia. Tuhoa huonot muutokset ‘git reset –hard’. Huomaa, että tässä toiminnossa ei ole peruutusnappia."
+
+
+Tein tiedoston loppuun pienen "typon" riville 104. 
+
+
+![Hard_reset](reset1.png "Hard reset")
+
+Lisäsin muutoksen seurantaan, mutta ennen committia tein hard resetin.
+
+
+![Hard_reset2](reset2.png "Hard reset2")
+
+Tarkistin vielä, että tiedostosta oli hävinnyt muutokset. Rivi 104 on tyhjä, kuten pitääkin.
+
+
+![Hard_reset3](reset3.png "hard reset3")
