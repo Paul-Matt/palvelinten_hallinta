@@ -37,10 +37,13 @@ $ sudo apt install code
 $ code
 ```
 
-Kopioin Documents-kansioon Github-repositorion, jotta tekemäni muutokset tähän dokumenttiin tallentuvat. Aloitin asentamalla Gitin.
+Kopioin Documents-kansioon Github-repositorion, jotta tekemäni muutokset tähän dokumenttiin tallentuvat. Aloitin asentamalla Gitin, laittamalla nimeni ja sähköpostini ja tarkistamalla, että menivät perille. Sitten suuntasin Documents-kansioon ja kloonasin repositorion Githubista.
 
 ```
 $ sudo apt-get install git
+$ git config --global user.name "Pauliina Mattila"
+$ git config --global user.email "35817764+Paul-Matt@users.noreply.github.com"
+$ git config --list
 $ pwd
 $ ls
 $ cd Documents
@@ -49,9 +52,50 @@ $ git clone https://github.com/Paul-Matt/palvelinten_hallinta.git
 $ ls
 $ cd palvelinten_hallinta/
 ```
+Kirjoitettuani tätä postausta, ja tehtyäni kaksi committia oli toisen tehtävän vuoro.
+
+
+## "d) Näytä omalla git-varastollasi esimerkit komennoista ‘git log’, ‘git diff’ ja ‘git blame’. Selitä tulokset."
+
+### git log
+
+
+```
+$ git log
+commit f044b334a495ebdde809edd060a4683d437b671c (HEAD -> main, origin/main, origin/HEAD)
+Author: Pauliina Mattila <35817764+Paul-Matt@users.noreply.github.com>
+Date:   Mon Nov 16 12:32:03 2020 +0000
+
+    Added task 3 file
+
+commit 10b132ec214ed3f15ec688159d313c836d96b494
+Author: Pauliina Mattila <35817764+Paul-Matt@users.noreply.github.com>
+Date:   Mon Nov 16 12:45:09 2020 +0200
+
+    First commit
+```
+
+Tässä kaikkein uusin commit näkyy ensimmäisenä, koska en antanut muita parametreja kuin "git log". Lokitiedossa näkyy SHA 1 taarkistussumma, sekä commitin tekijän tiedot, eli nimi ja sähköpostiosoite. Omani on Githubin sähköpostiosoite, josta ei suoraan selviä oikea osoitteeni. Yhteydenotot siihen tulevat kuitenkin githubin kautta perille. Tiedoissa näkyy myös päivämäärä ja kellonaika, jolloin commit tehtiin. Viimeisenä näkyy commitin yhteydessä kirjoitettu viesti muutoksista. 
+
+
+### git log
+
+
+```
+diff --git a/palvelinten_hallinta_h3.md b/palvelinten_hallinta_h3.md
+index 95bb6e7..104cc4b 100644
+--- a/palvelinten_hallinta_h3.md
++++ b/palvelinten_hallinta_h3.md
+```
+
+Tässä näkyy mitä tiedostoja vertaillaan, ja kerrotaan kumpi näkyy tulosteessa --- etumerkeillä ja kumpi +++ etumerkeillä. Eli näytetään mitä on lisätty, mitä poistettu. Loput tekstistä on myös plus- ja miinusmerkkien lisäksi väritetty, joten on helppoa nähdä lisäykset ja poistot. Lisäksi tässä näkyy tarkastussummien lyhennetyt muodot.
+
+![Diff-kuva](ph1_diff.png "Diff-kuva")
 
 
 
+### git blame
 
+Tässä näytetään rivi riviltäkuka teki kyseisen muutoksen. Tätä tiedostoa muut eivät ole muokanneet, joten näkyy vain omia muokkailuja. Tämä oli itselleni uusi komento, ja voisin kuvitella sen olevan hyödyllinen kummallisten merge-tapahtumien selvittelyssä.
 
-
+![Blame-kuva](ph2_blame.png "Blame-kuva")
