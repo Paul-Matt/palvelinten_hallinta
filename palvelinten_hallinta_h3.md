@@ -21,7 +21,7 @@ Jatkoin tehtävien tekoa Linux-livetikkuni avulla, joten annoin komennot
 $ setxkbmap fi
 $ sudo apt-get update
 ```
-Seuraavaksi asensin Visual Studio Coden, jolla on helppo esikatsella Markdown-dokumenttia sitä kirjoittaessa. Lopuksi avasin ohjelman.
+Seuraavaksi asensin Visual Studio Coden, jolla on helppo esikatsella Markdown-dokumenttia sitä kirjoittaessa. Katsoin ohjeet [tältä](https://linuxize.com/post/how-to-install-visual-studio-code-on-ubuntu-18-04/) nettisivulta. Lopuksi avasin ohjelman.
 
 ```
 $ sudo apt install software-properties-common apt-transport-https wget
@@ -118,3 +118,15 @@ Tarkistin vielä, että tiedostosta oli hävinnyt muutokset. Rivi 104 on tyhjä,
 
 
 ![Hard_reset3](reset3.png "hard reset3")
+
+
+## "f) Tee uusi salt-moduli. Voit asentaa ja konfiguroida minkä vain uuden ohjelman: demonin, työpöytäohjelman tai komentokehotteesta toimivan ohjelman. Käytä tarvittaessa ‘find -printf “%T+ %p\n”|sort’ löytääksesi uudet asetustiedostot. (Tietysti eri ohjelma kuin aiemmissa tehtävissä, tarkoitushan on harjoitella Salttia)"
+
+Halusin kokeilla jotain haastavampaa ja tutustua Saltin dokumentteihin. Mietin, olisiko mahdollista kokeilla yllä mainittua Visual Studio Coden asennusta Saltilla. Tutkin Saltin dokumentaatiota, ja yritin ottaa tarkemmin selvää, mitä kussakin kohdassa asennusta tapahtuu.
+
+Käytin tätä [nettisivua](https://linuxize.com/post/how-to-add-apt-repository-in-ubuntu/) ymmärtääkseni apt repositorion lisäämisen osasia enemmän. Saltin dokumenteista tutkin erityisesti Saltin moduulien asennuksesta kertovaa [osiota](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html#module-salt.states.pkg).
+
+
+
+Lähteet:
+Tehtävät: [Palvelinten hallinta -kurssisivu](http://terokarvinen.com/2020/configuration-management-systems-palvelinten-hallinta-ict4tn022-autumn-2020/)
