@@ -126,7 +126,35 @@ Halusin kokeilla jotain haastavampaa ja tutustua Saltin dokumentteihin. Mietin, 
 
 Käytin tätä [nettisivua](https://linuxize.com/post/how-to-add-apt-repository-in-ubuntu/) ymmärtääkseni apt repositorion lisäämisen osasia enemmän. Saltin dokumenteista tutkin erityisesti Saltin moduulien asennuksesta kertovaa [osiota](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html#module-salt.states.pkg).
 
+Rakensin vscode.init-dokumentin, jota kokeilin ensin Salt minionilla. Kone meni jotenkin kierroksille ja kesti todella pitkään. Päätin keskeyttää. Luulin, että koneen kierroksille menoa kannattaisin tutkia, joten ajoin tilaa paikallisesti debug-moodissa. Sain seuraavanlaisen virheviestin: 
 
+![Virheviesti](vscode.png "Virheviesti")
+
+Laitoin livetikun uudestaan pyörimään, ja muokkasin osoitetta, josta deb-paketti haetaan. löydettyäni [täältä](https://code.visualstudio.com/docs/setup/linux) vaihtoehdon. Muokkasin myös sls-tiedoston seuraavanlaiseksi:
+
+```
+  GNU nano 2.9.3                                                                                                             /var/tmp/vscodeXXz2V3it.sls                                                                                                                       
+
+install software for vscode:
+  pkg.installed:
+    - pkgs:
+      - software-properties-common
+      - apt-transport-https
+
+vscode repo:
+  pkgrepo.managed:
+    - name: deb https://go.microsoft.com/fwlink/?LinkID=760868 stable main
+
+code:
+  pkg.installed
+
+```
+
+Pääsin hieman eteenpäin, mutta sain uuden virheviestin:
+
+![Virheviesti2](vscode2.png "Virheviesti2")
+
+Täytyy myöntää tappio, ja yrittää jatkaa tätä myöhemmin, josko vielä tämän viimeisen askeleen saisin menemään läpi, ja ohjelman etäasennettua.
 
 Lähteet:
 Tehtävät: [Palvelinten hallinta -kurssisivu](http://terokarvinen.com/2020/configuration-management-systems-palvelinten-hallinta-ict4tn022-autumn-2020/)
