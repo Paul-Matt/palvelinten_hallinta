@@ -78,7 +78,7 @@ Date:   Mon Nov 16 12:45:09 2020 +0200
 Tässä kaikkein uusin commit näkyy ensimmäisenä, koska en antanut muita parametreja kuin "git log". Lokitiedossa näkyy SHA 1 taarkistussumma, sekä commitin tekijän tiedot, eli nimi ja sähköpostiosoite. Omani on Githubin sähköpostiosoite, josta ei suoraan selviä oikea osoitteeni. Yhteydenotot siihen tulevat kuitenkin githubin kautta perille. Tiedoissa näkyy myös päivämäärä ja kellonaika, jolloin commit tehtiin. Viimeisenä näkyy commitin yhteydessä kirjoitettu viesti muutoksista. 
 
 
-### git log
+### git diff
 
 
 ```
@@ -126,7 +126,31 @@ Halusin kokeilla jotain haastavampaa ja tutustua Saltin dokumentteihin. Mietin, 
 
 Käytin tätä [nettisivua](https://linuxize.com/post/how-to-add-apt-repository-in-ubuntu/) ymmärtääkseni apt repositorion lisäämisen osasia enemmän. Saltin dokumenteista tutkin erityisesti Saltin moduulien asennuksesta kertovaa [osiota](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html#module-salt.states.pkg).
 
-Rakensin vscode.init-dokumentin, jota kokeilin ensin Salt minionilla. Kone meni jotenkin kierroksille ja kesti todella pitkään. Päätin keskeyttää. Luulin, että koneen kierroksille menoa kannattaisin tutkia, joten ajoin tilaa paikallisesti debug-moodissa. Sain seuraavanlaisen virheviestin: 
+Rakensin vscode.init-dokumentin, jota kokeilin ensin Salt minionilla. Sls näytti tältä:
+
+```
+install software for vscode:
+  pkg.installed:
+    - pkgs:
+      - software-properties-common
+      - apt-transport-https
+
+vscode repo:
+  pkgrepo.managed:
+    - name: deb https://packages.microsoft.com/repos/vscode stable main
+    - dist: stable
+    - keyserver: https://packages.microsoft.com/keys/microsoft.asc
+
+update packages:
+  pkg.uptodate
+
+code:
+  pkg.installed
+```
+
+
+
+Kone meni jotenkin kierroksille ja kesti todella pitkään. Päätin keskeyttää. Luulin, että koneen kierroksille menoa kannattaisin tutkia, joten ajoin tilaa paikallisesti debug-moodissa. Sain seuraavanlaisen virheviestin: 
 
 ![Virheviesti](vscode.png "Virheviesti")
 
